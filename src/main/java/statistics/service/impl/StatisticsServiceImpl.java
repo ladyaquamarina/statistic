@@ -72,16 +72,6 @@ public class StatisticsServiceImpl implements StatisticsService {
                 .map(interface -> true);
     }
 
-    private Mono<Boolean> checkUserMatchInterface(String userId, String interfaceId) {
-        return userService.getAllNotUserIds()
-                .any(id -> Objects.equals(id, userId))
-                .flatMap(checkSupportId -> interfaceService.getByIdAndUserId(interfaceId, userId)
-                        .map(checkMatchInterface -> !checkSupportId || checkMatchInterface != null)
-                        .switchIfEmpty(checkSupportId ? Mono.just(true) : Mono.empty()))
-                .switchIfEmpty(Mono.error(UNAUTHORIZED_ACCESS_ATTEMPT_EXCEPTION))
-                .map(interface -> true);
-    }
-
     private Mono<Boolean> checkIdFromNotUserIdList(String userId) {
         return userService.getAllNotUserIds()
                 .any(id -> Objects.equals(id, userId));
