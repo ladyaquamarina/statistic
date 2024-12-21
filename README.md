@@ -35,7 +35,7 @@ OLAP запросы.
 	− Технологии:
 ClickHouse;
 OLAP запросы.
-	1.	Удаление данных:
+3. Удаление данных:
 	− Название метода: deleteStatistics
 	− Входные параметры: statisticsId, userId, interfaceId
 	− Логика метода:
