@@ -1,0 +1,12 @@
+services:
+  db:
+    image: postgres:latest
+    restart: always
+    environment:
+      POSTGRES_HOST: "%"
+      POSTGRES_ROOT_HOST: "%"
+      POSTGRES_DB: "statistics"
+      POSTGRES_USER: "postgres"
+      POSTGRES_PASSWORD: "postgres"
+    ports:
+      - '6432:5432'

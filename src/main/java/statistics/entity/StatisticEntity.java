@@ -1,6 +1,10 @@
 package statistics.entity;
 
-import java.util.List;
+import java.time.LocalDateTime;
+
+import statistics.enums.MathType;
+import statistics.enums.OperationType;
+import statistics.enums.StatisticsStatus;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -11,10 +15,10 @@ import org.springframework.data.relational.core.mapping.Column;
 import org.springframework.data.relational.core.mapping.Table;
 
 @Data
-@NoArgsConstructor
 @AllArgsConstructor
-@Table("layer")
-public class InterfaceEntity implements Persistable<String> {
+@NoArgsConstructor
+@Table("statistic")
+public class StatisticEntity implements Persistable<String> {
     @Id
     @Column("id")
     private String id;
@@ -22,8 +26,20 @@ public class InterfaceEntity implements Persistable<String> {
     @Column("user_id")
     private String userId;
 
-    @Column("support_ids")
-    private List<String> supportIds;
+    @Column("math_type")
+    private MathType mathType;
+
+    @Column("operation_type")
+    private OperationType operationType;
+
+    @Column("value")
+    private Double value;
+
+    @Column("created_at")
+    private LocalDateTime createdAt;
+
+    @Column("status")
+    private StatisticsStatus status;
 
     @Transient
     private boolean isNew = false;

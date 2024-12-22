@@ -8,12 +8,12 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class StatisticsDto {
+public class StatisticDto {
     private String id;
-    private String layerId;
-    private String authorId;
-    private String statistics;
-    private Integer numberInLayer;
-    LocalDateTime createdAt;
-    String status;
+    private String userId;
+    private String mathType;
+    private String operationType;
+    private Double value;
+    private LocalDateTime createdAt;
+    private String status;
 }
